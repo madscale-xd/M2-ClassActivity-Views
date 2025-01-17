@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ViewManager : MonoBehaviour
 {
@@ -90,5 +92,13 @@ public class ViewManager : MonoBehaviour
 		{
 			Show(_startingView, true);
 		}
+	}
+
+	public void QuitGame(){
+		Application.Quit();
+	}
+
+	public void LoadGame(){
+		SceneManager.LoadScene("Game");
 	}
 }
