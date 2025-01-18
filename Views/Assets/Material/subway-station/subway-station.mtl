@@ -1,0 +1,134 @@
+# Blender3D MTL File: 
+# Material Count: 12
+newmtl RefRep.009_SH_initial_loader.010
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_12.png
+
+
+newmtl RefRep.004_SH_initial_loader.003
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_5.png
+
+
+newmtl RefRep.010_SH_initial_loader.007
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_9.png
+
+
+newmtl RefRep.006_SH_initial_loader.005
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_7.png
+
+
+newmtl RefRep.011_SH_initial_loader.006
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_8.png
+
+
+newmtl RefRep.005_SH_initial_loader.004
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_6.png
+
+
+newmtl RefRep.003_SH_initial_loader.002
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_4.png
+
+
+newmtl RefRep_SH_initial_loader.exe
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_1.png
+
+
+newmtl RefRep.007_SH_initial_loader.009
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_11.png
+
+
+newmtl RefRep.008_SH_initial_loader.008
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_10.png
+
+
+newmtl RefRep.002_SH_initial_loader.001
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_3.png
+
+
+newmtl RefRep.001_SH_initial_loader
+Ns 0.000000
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd SH_initial_loader.exe_Sat_Dec_03_19-07-29_2005_2.png
+
+

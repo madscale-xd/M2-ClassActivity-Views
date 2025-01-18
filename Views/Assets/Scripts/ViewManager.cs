@@ -2,103 +2,121 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class ViewManager : MonoBehaviour
 {
-	private static ViewManager s_instance;
+    private static ViewManager s_instance;
 
-	[SerializeField] private View _startingView;
+    [SerializeField] private View _startingView;
+    [SerializeField] private View[] _views;
 
-	[SerializeField] private View[] _views;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _buttonClickSound; 
 
-	private View _currentView;
+    private View _currentView;
 
-	private readonly Stack<View> _history = new Stack<View>();
+    private readonly Stack<View> _history = new Stack<View>();
 
-	public static T GetView<T>() where T : View
-	{
-		for (int i = 0; i < s_instance._views.Length; i++)
-		{
-			if (s_instance._views[i] is T tView)
-			{
-				return tView;
-			}
-		}
+    public static T GetView<T>() where T : View
+    {
+        for (int i = 0; i < s_instance._views.Length; i++)
+        {
+            if (s_instance._views[i] is T tView)
+            {
+                return tView;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public static void Show<T>(bool remember = true) where T : View
-	{
-		for (int i = 0; i < s_instance._views.Length; i++)
-		{
-			if (s_instance._views[i] is T)
-			{
-				if (s_instance._currentView != null)
-				{
-					if (remember)
-					{
-						s_instance._history.Push(s_instance._currentView);
-					}
+    public static void Show<T>(bool remember = true, AudioClip soundEffect = null) where T : View
+    {
+        s_instance?.PlaySound(soundEffect);
 
-					s_instance._currentView.Hide();
-				}
+        for (int i = 0; i < s_instance._views.Length; i++)
+        {
+            if (s_instance._views[i] is T)
+            {
+                if (s_instance._currentView != null)
+                {
+                    if (remember)
+                    {
+                        s_instance._history.Push(s_instance._currentView);
+                    }
 
-				s_instance._views[i].Show();
+                    s_instance._currentView.Hide();
+                }
 
-				s_instance._currentView = s_instance._views[i];
-			}
-		}
-	}
+                s_instance._views[i].Show();
+                s_instance._currentView = s_instance._views[i];
+            }
+        }
+    }
 
-	public static void Show(View view, bool remember = true)
-	{
-		if (s_instance._currentView != null)
-		{
-			if (remember)
-			{
-				s_instance._history.Push(s_instance._currentView);
-			}
+    public static void Show(View view, bool remember = true, AudioClip soundEffect = null)
+    {
+        s_instance?.PlaySound(soundEffect);
 
-			s_instance._currentView.Hide();
-		}
+        if (s_instance._currentView != null)
+        {
+            if (remember)
+            {
+                s_instance._history.Push(s_instance._currentView);
+            }
 
-		view.Show();
+            s_instance._currentView.Hide();
+        }
 
-		s_instance._currentView = view;
-	}
+        view.Show();
+        s_instance._currentView = view;
+    }
 
-	public static void ShowLast()
-	{
-		if (s_instance._history.Count != 0)
-		{
-			Show(s_instance._history.Pop(), false);
-		}
-	}
+    public static void ShowLast(AudioClip soundEffect = null)
+    {
+        if (s_instance._history.Count != 0)
+        {
+            Show(s_instance._history.Pop(), false, soundEffect);
+        }
+    }
 
-	private void Awake() => s_instance = this;
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    private void PlaySound(AudioClip soundEffect)
+    {
+        if (_audioSource != null)
+        {
+            if (soundEffect != null)
+            {
+                _audioSource.PlayOneShot(soundEffect);
+            }
+            else if (_buttonClickSound != null)
+            {
+                _audioSource.PlayOneShot(_buttonClickSound);
+            }
+        }
+    }
 
-	private void Start()
-	{
-		for (int i = 0; i < _views.Length; i++)
-		{
-			_views[i].Initialize();
+    private void Awake() => s_instance = this;
 
-			_views[i].Hide();
-		}
+    private void Start()
+    {
+        for (int i = 0; i < _views.Length; i++)
+        {
+            _views[i].Initialize();
+            _views[i].Hide();
+        }
 
-		if (_startingView != null)
-		{
-			Show(_startingView, true);
-		}
-	}
+        if (_startingView != null)
+        {
+            Show(_startingView, true);
+        }
+    }
 
-	public void QuitGame(){
-		Application.Quit();
-	}
-
-	public void LoadGame(){
-		SceneManager.LoadScene("Game");
-	}
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
