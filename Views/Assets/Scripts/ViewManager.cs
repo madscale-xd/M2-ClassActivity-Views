@@ -82,8 +82,16 @@ public class ViewManager : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        PlaySound(_buttonClickSound); 
+        StartCoroutine(LoadGameWithDelay());
     }
+
+    private IEnumerator LoadGameWithDelay()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        SceneManager.LoadScene("Game");      
+    }
+    
     private void PlaySound(AudioClip soundEffect)
     {
         if (_audioSource != null)
@@ -117,6 +125,13 @@ public class ViewManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
+        PlaySound(_buttonClickSound); 
+        StartCoroutine(QuitGameWithDelay());
+    }
+
+    private IEnumerator QuitGameWithDelay()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        Application.Quit();    
     }
 }

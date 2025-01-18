@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuCanvas;  // Reference to the Pause Menu Canvas (assign in inspector)
     [SerializeField] private Button resumeButton;         // Reference to the Resume Button (assign in inspector)
     [SerializeField] private Button menuButton;           // Reference to the Menu Button (assign in inspector)
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _buttonClickSound; 
     private bool isPaused = false;
 
     void Start()
@@ -31,6 +33,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                PlaySound(_buttonClickSound);
                 PauseGame();   // If not paused, pause the game
             }
         }
@@ -48,6 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     void ResumeGame()
     {
+        PlaySound(_buttonClickSound);
         pauseMenuCanvas.SetActive(false);
 
         // Resume the game
@@ -62,5 +66,20 @@ public class PauseMenu : MonoBehaviour
 
         // Load the menu scene
         SceneManager.LoadScene("View");  // Replace "MainMenu" with your actual menu scene name
+    }
+
+    private void PlaySound(AudioClip soundEffect)
+    {
+        if (_audioSource != null)
+        {
+            if (soundEffect != null)
+            {
+                _audioSource.PlayOneShot(soundEffect);
+            }
+            else if (_buttonClickSound != null)
+            {
+                _audioSource.PlayOneShot(_buttonClickSound);
+            }
+        }
     }
 }
